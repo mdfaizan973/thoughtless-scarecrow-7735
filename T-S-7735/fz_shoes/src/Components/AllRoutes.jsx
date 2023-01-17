@@ -9,6 +9,7 @@ import Login from "..//Pages/Login";
 import Signup from "..//Pages/Signup";
 import Siingle_pro from "..//Pages/Siingle_pro";
 import Womens_pro from "..//Pages/Womens_pro";
+import Mens_Pro from "..//Pages/Mens_Pro";
 
 export default function AllRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AllRoutes() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/single_pro/:id" element={<Siingle_pro />}></Route>
         <Route path="/womens_pro" element={<Womens_pro />}></Route>
+        <Route path="/mens_pro" element={<Mens_Pro />}></Route>
       </Routes>
     </div>
   );
