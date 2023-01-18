@@ -1,9 +1,71 @@
 import React from "react";
+import Womens_Card from ".//Mens_Card";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+export default function Womens_Pro() {
+  const [mdata, setMdata] = useState([]);
+  const getData = () => {
+    axios
+      .get("http://localhost:3040/products_women")
+      .then((res) => {
+        setMdata(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-export default function Womens_pro() {
+  useEffect(() => {
+    getData();
+  }, []);
+
+  // console.log("data:", mdata);
   return (
-    <div>
-      <h1>Womens</h1>
+    <div
+      style={{
+        display: "flex",
+        width: "98%",
+        margin: "auto",
+      }}
+    >
+      <div
+        style={{
+          border: "2px solid yellow",
+          width: "20%",
+        }}
+      >
+        {" "}
+        <h1>sidebar</h1>
+      </div>
+      <div style={{ width: "80%" }}>
+        <h1>Womenspro</h1>
+        <Grid
+          templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
+          width={"90%"}
+          margin={"auto"}
+          gap={2}
+        >
+          {mdata?.length > 0 &&
+            mdata?.map((e) => {
+              return (
+                <GridItem id={e.id} w="100%" h="100%">
+                  <Womens_Card
+                    id={e.id}
+                    title={e.title}
+                    image1={e.image1}
+                    image2={e.image2}
+                    price={e.price}
+                    discription={e.discription}
+                    category={e.category}
+                    brand={e.brand}
+                  />
+                </GridItem>
+              );
+            })}
+        </Grid>
+      </div>
     </div>
   );
 }
