@@ -38,7 +38,8 @@ const NavLink = ({ children }) => (
   </Link>
 );
 // https://cdn-icons-png.flaticon.com/512/263/263142.png
-
+// <Image src="./logo.png.png" alt="Dan Abramov" width="60%" />
+//
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -138,6 +139,10 @@ export default function Navbar() {
                       <RouterLink to="/cartpage">
                         {" "}
                         <MenuItem>Cart..... </MenuItem>{" "}
+                      </RouterLink>
+                      <RouterLink to="/single_pro/:id">
+                        {" "}
+                        <MenuItem>single..... </MenuItem>{" "}
                       </RouterLink>
                     </MenuGroup>
                     <MenuDivider />
