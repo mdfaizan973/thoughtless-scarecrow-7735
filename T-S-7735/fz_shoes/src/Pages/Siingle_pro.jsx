@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { useParams } from "react-router-dom";
 import {
   Box,
@@ -29,7 +28,7 @@ export default function Siingle_pro() {
   const { id } = useParams();
   const getDta = async () => {
     axios
-      .get(`http://localhost:3040/products_mens/${id}`)
+      .get(`http://localhost:3040/all_pro/${id}`)
       .then((res) => {
         console.log(res.data);
         setProds(res.data);
@@ -183,16 +182,8 @@ export default function Siingle_pro() {
           </Stack>
         </SimpleGrid>
       </Container>
-
-      <img
-        width="100%"
-        height="300px"
-        src="https://static.nike.com/a/images/t_prod/w_1920,c_limit,f_auto,q_auto/8946c37f-d2ba-4e77-b1f2-2f0676628902/pdp.jpg"
-        alt=""
-      />
-
       <Box textAlign="center" py={10} px={6}>
-        <Image width="100%" src="./md faizanpgo.png" alt="" />
+        <Image src="../md faizanpgo.png" alt="" />
       </Box>
     </div>
   );
