@@ -22,7 +22,8 @@ export default function AllRoutes() {
         <Route path="/kids_pro" element={<Kids_pro />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/single_pro/:id" element={<Siingle_pro />}></Route>
+        <Route path="/products_mens/:id" element={<Siingle_pro />}></Route>{" "}
+        {/* this single page is for mens */}
         <Route path="/womens_pro" element={<Womens_pro />}></Route>
         <Route path="/mens_pro" element={<Mens_Pro />}></Route>
       </Routes>
