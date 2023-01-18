@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import { Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { Input } from "@chakra-ui/react";
-
 import {
   Box,
   Flex,
@@ -44,16 +43,12 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <>
+    <div>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <RouterLink to="/">
             <Box>
-              <Image
-                src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"
-                alt="Dan Abramov"
-                width="50%"
-              />
+              <Image src="./logo.png.png" alt="Dan Abramov" width="60%" />
             </Box>
           </RouterLink>
 
@@ -62,7 +57,6 @@ export default function Navbar() {
             width="60%"
             placeholder="Search your products..."
           />
-
           <Flex alignItems={"center"} marginLeft={"30px"}>
             <Stack direction={"row"} spacing={7}>
               <Button onClick={toggleColorMode} width="20px">
@@ -148,7 +142,7 @@ export default function Navbar() {
                     </MenuGroup>
                     <MenuDivider />
 
-                    <RouterLink to="/login">
+                    <RouterLink to="/signup">
                       {" "}
                       <MenuItem>Account</MenuItem>{" "}
                     </RouterLink>
@@ -160,6 +154,6 @@ export default function Navbar() {
           </Flex>
         </Flex>
       </Box>
-    </>
+    </div>
   );
 }
