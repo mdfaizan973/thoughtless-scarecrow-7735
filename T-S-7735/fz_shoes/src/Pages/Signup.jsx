@@ -1,3 +1,5 @@
+import React from "react";
+import Alertotp from "..//pro_cat_btn/Alertotp";
 import {
   Flex,
   Box,
@@ -10,10 +12,12 @@ import {
   Stack,
   Button,
   Heading,
+  useDisclosure,
   Text,
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
+
 import { useToast } from "@chakra-ui/react";
 
 import { Link as RouterLink } from "react-router-dom";
@@ -24,7 +28,8 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const toast = useToast();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
   return (
     <Flex
       minH={"100vh"}
@@ -64,7 +69,7 @@ export default function Signup() {
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" required />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
@@ -83,17 +88,17 @@ export default function Signup() {
               </InputGroup>
             </FormControl>
 
-            <HStack>
+            <HStack spacing={24}>
               <Box>
                 <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Phone</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                <FormControl id="firstName" isRequired>
+                  <FormLabel>OTP</FormLabel>
+                  <Alertotp />
                 </FormControl>
               </Box>
             </HStack>
