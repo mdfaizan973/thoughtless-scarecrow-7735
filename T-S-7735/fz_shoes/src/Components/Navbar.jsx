@@ -151,6 +151,10 @@ export default function Navbar() {
                         {" "}
                         <MenuItem>single..... </MenuItem>{" "}
                       </RouterLink>
+                      <RouterLink to="/blogs">
+                        {" "}
+                        <MenuItem>Blogs..... </MenuItem>{" "}
+                      </RouterLink>
                     </MenuGroup>
                     <MenuDivider />
 
