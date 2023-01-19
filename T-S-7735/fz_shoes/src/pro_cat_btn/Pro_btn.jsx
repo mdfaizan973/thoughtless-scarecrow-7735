@@ -8,6 +8,7 @@ export default function Pro_btn() {
       <button> Womens.. </button>
       <button> Kids.. </button>
       <button> Brands.. </button>
+      <hr />
     </div>
   );
 }

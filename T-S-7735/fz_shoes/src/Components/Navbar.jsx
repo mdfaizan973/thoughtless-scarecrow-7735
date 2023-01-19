@@ -45,7 +45,14 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box
+        bg={useColorModeValue("gray.100", "gray.900")}
+        px={4}
+        width="100%"
+        top={0}
+        position="fixed"
+        style={{ zIndex: 1 }}
+      >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <RouterLink to="/">
             <Box>

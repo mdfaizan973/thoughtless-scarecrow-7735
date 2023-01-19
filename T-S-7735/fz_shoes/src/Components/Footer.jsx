@@ -32,10 +32,7 @@ export default function Footer() {
         >
           <Stack spacing={2}>
             <Box>
-              <img
-                width="50%"
-                src="https://www.crocs.com/on/demandware.static/Sites-crocs_us-Site/-/default/dw3ce21b1f/images/logo-no-tag.svg"
-              />
+              <img width="100%" src="http://localhost:3001/logo.png.png" />
             </Box>
             <Text fontSize={"sm"}>
               © 2022 Chakra Templates. All rights reserved
