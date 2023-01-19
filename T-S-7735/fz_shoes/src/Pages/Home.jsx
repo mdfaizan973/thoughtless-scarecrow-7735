@@ -33,7 +33,7 @@ export default function Home() {
             <img
               width="100%"
               height="50px"
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d8a7ed99184077.5eecde766c3bd.png"
+              src="https://cdn.about.puma.com/-/media/images/this-is-puma/header-thisispuma_karsten.jpg?as=1&h=960&iar=1&w=1920&rev=01ce37c0ba5740a18507ad809dc382f7&hash=863F092F2133B1B5470B0992FA3536EF"
               alt=""
             />
           </div>
@@ -41,7 +41,7 @@ export default function Home() {
             <img
               width="100%"
               height="50%"
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d8a7ed99184077.5eecde766c3bd.png"
+              src="https://cdn.about.puma.com/-/media/images/this-is-puma/our-mission/m-06-run-puma.jpg?as=1&h=960&iar=1&w=1920&rev=83d482edadb44b39b25302a93484f758&hash=0E1C54FB3864F95BBC0BE6D545868706"
               alt=""
             />
           </div>
@@ -62,6 +62,7 @@ export default function Home() {
             />
           </div>
         </Slider>
+        <hr />
 
         <CheckCircleIcon
           boxSize={"50px"}
@@ -78,7 +79,6 @@ export default function Home() {
           with responsive cushioning.
         </Heading>
       </Box>
-
       <Pro_btn />
 
       <Cards />
