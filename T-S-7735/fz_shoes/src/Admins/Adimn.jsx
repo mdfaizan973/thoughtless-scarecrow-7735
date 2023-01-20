@@ -16,6 +16,7 @@ import {
   BoxProps,
   FlexProps,
 } from "@chakra-ui/react";
+import { Heading, Image, useBreakpointValue } from "@chakra-ui/react";
 import {
   FiHome,
   FiTrendingUp,
@@ -55,15 +56,64 @@ export default function Admin({ children }) {
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-        and typesetting industry. Lorem Ipsum has been the industry's standard
-        dummy text ever since the 1500s, when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book. It has survived
-        not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and more
-        recently with desktop publishing software like Aldus PageMaker including
-        versions of Lorem Ipsum.
+        <Stack
+          minH={"100vh"}
+          marginTop={"50px"}
+          direction={{ base: "column", md: "row" }}
+        >
+          <Flex p={8} flex={1} align={"center"} justify={"center"}>
+            <Stack spacing={6} w={"full"} maxW={"lg"}>
+              <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+                <Text
+                  as={"span"}
+                  position={"relative"}
+                  _after={{
+                    content: "''",
+                    width: "full",
+                    height: useBreakpointValue({ base: "20%", md: "30%" }),
+                    position: "absolute",
+                    bottom: 1,
+                    left: 0,
+                    bg: "blue.400",
+                    zIndex: -1,
+                  }}
+                >
+                  Freelance
+                </Text>
+                <br />{" "}
+                <Text color={"blue.400"} as={"span"}>
+                  Design Projects
+                </Text>{" "}
+              </Heading>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+                The project board is an exclusive resource for contract work.
+                It's perfect for freelancers, agencies, and moonlighters.
+              </Text>
+              <Stack direction={{ base: "column", md: "row" }} spacing={4}>
+                <Button
+                  rounded={"full"}
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                >
+                  Create Project
+                </Button>
+                <Button rounded={"full"}>How It Works</Button>
+              </Stack>
+            </Stack>
+          </Flex>
+          <Flex flex={1}>
+            <Image
+              alt={"Login Image"}
+              objectFit={"cover"}
+              src={
+                "https://cdn3.vectorstock.com/i/1000x1000/43/92/stock-market-or-forex-trading-graph-in-graphic-vector-23614392.jpg"
+              }
+            />
+          </Flex>
+        </Stack>
       </Box>
     </Box>
   );
