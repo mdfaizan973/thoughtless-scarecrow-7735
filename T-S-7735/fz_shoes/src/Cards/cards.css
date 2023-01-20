@@ -22,12 +22,29 @@
   width: 99%;
   opacity: 0.8;
 }
-/* .cards div {
-  border: 2px solid black;
+
+.smpban {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+  gap: 15px;
 }
-.cards div img {
-  width: 100%;
-} */
+.smpban div {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.smpban div:hover {
+  opacity: 0.8;
+  width: 99%;
+}
+.smpban div img {
+  border-radius: 10px;
+}
+
+.cartcat {
+  margin-top: 50px;
+}
+
 @media all and (min-width: 100px) and (max-width: 450px) {
   .cards {
     display: flex;
@@ -36,5 +53,9 @@
   .prople_card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .smpban {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }

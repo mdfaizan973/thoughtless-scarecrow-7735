@@ -56,7 +56,11 @@ export default function Navbar() {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <RouterLink to="/">
             <Box>
-              <Image src="./logo.png.png" alt="Dan Abramov" width="60%" />
+              <Image
+                src=".\Minari_Bao-removebg-preview.png"
+                alt="Dan Abramov"
+                width="60%"
+              />
             </Box>
           </RouterLink>
 
