@@ -1,5 +1,4 @@
 import React from "react";
-// import { Card, CardHeader, CardBody, CardFooter } from "@chakra-ui/react";
 import { Box, Heading, Text, Image } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import Slider from "react-slick";
@@ -7,12 +6,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Pro_btn from "../pro_cat_btn/Pro_btn";
 import Cards from "..//Cards/Cards";
-
+// home page
 export default function Home() {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 350,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,

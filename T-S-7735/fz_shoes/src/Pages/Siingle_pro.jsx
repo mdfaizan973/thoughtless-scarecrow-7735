@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import FpicCards from "..//Cards/FpicCards";
 import {
   Box,
   chakra,
@@ -183,7 +184,7 @@ export default function Siingle_pro() {
         </SimpleGrid>
       </Container>
       <Box textAlign="center" py={10} px={6}>
-        <Image src="../md faizanpgo.png" alt="" />
+        <FpicCards />
       </Box>
     </div>
   );

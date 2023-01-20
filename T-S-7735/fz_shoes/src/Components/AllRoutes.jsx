@@ -10,6 +10,7 @@ import Signup from "..//Pages/Signup";
 import Siingle_pro from "..//Pages/Siingle_pro";
 import Womens_pro from "..//Pages/Womens_pro";
 import Mens_Pro from "..//Pages/Mens_Pro";
+import Blogs from "../Pages/Blogs";
 export default function AllRoutes() {
   return (
     <div>
@@ -23,10 +24,10 @@ export default function AllRoutes() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/womens_pro" element={<Womens_pro />}></Route>
         <Route path="/mens_pro" element={<Mens_Pro />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/products_mens/:id" element={<Siingle_pro />}></Route>{" "}
         {/* this single page is for mens */}
       </Routes>
-      ds
     </div>
   );
 }
