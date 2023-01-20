@@ -33,46 +33,6 @@ import { LinkasRouterLink } from "react-router-dom";
 import { Input, Stack } from "@chakra-ui/react";
 export default function Admin({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // const [showPassword, setShowPassword] = useState(false);
-  // const cancelRef = React.useRef();
-  // const toast = useToast();
-
-  // const [otp, setOtp] = useState("");
-  const [formstate, setFormState] = useState({
-    title: "",
-    image1: "",
-    image2: "",
-    category: "",
-    discription: "",
-    price: "",
-    brands: "",
-  });
-
-  const addpro = () => {
-    // axios
-    //   .post(" http://localhost:8080/users", formstate)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     // setFormState(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    axios
-      .post("http://localhost:3040/products_women", formstate)
-      .then((res) => {
-        console.log(res.data);
-        setFormState(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    console.log(formstate);
-  };
-
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -95,88 +55,15 @@ export default function Admin({ children }) {
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <Stack
-          spacing={3}
-          padding="10px"
-          width="50%"
-          margin=" 100px auto"
-          border="2px solid grey"
-          borderRadius="10px"
-        >
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                title: e.target.value,
-              });
-            }}
-            placeholder="Title"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                image1: e.target.value,
-              });
-            }}
-            placeholder="Image-1"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                image2: e.target.value,
-              });
-            }}
-            placeholder="Image-2"
-            variant="Filled"
-          />{" "}
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                category: e.target.value,
-              });
-            }}
-            placeholder="Category"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                brand: e.target.value,
-              });
-            }}
-            placeholder="Brand"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                price: e.target.value,
-              });
-            }}
-            placeholder="Price"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                discription: e.target.value,
-              });
-            }}
-            placeholder="Discription"
-            variant="Filled"
-          />
-          <Button onClick={addpro} size="md" colorScheme="blue">
-            Button
-          </Button>
-        </Stack>
+        What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the industry's standard
+        dummy text ever since the 1500s, when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book. It has survived
+        not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with
+        the release of Letraset sheets containing Lorem Ipsum passages, and more
+        recently with desktop publishing software like Aldus PageMaker including
+        versions of Lorem Ipsum.
       </Box>
     </Box>
   );

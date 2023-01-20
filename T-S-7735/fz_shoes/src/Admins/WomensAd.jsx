@@ -95,11 +95,13 @@ export default function WomensAd({ children }) {
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
+        <h1 style={{ margin: "60px 0", fontSize: "30px" }}> Add Products</h1>
+
         <Stack
           spacing={3}
           padding="10px"
           width="50%"
-          margin=" 100px auto"
+          margin=" 40px auto"
           border="2px solid grey"
           borderRadius="10px"
         >

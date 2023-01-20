@@ -29,6 +29,7 @@ import { BsFillAwardFill } from "react-icons/bs";
 import Mens_Card from ".//Mens_Card";
 import { useState } from "react";
 import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
 // export default function Kids_pro() {
 //   const [mdata, setMdata] = useState([]);
 //   const getData = () => {
@@ -36,7 +37,6 @@ import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 //       .get("http://localhost:3040/Child_shoe")
 //       .then((res) => {
 //         setMdata(res.data);
-//         console.log(res.data);
 //       })
 //       .catch((err) => {
 //         console.log(err);
@@ -47,7 +47,6 @@ import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 //     getData();
 //   }, []);
 
-//   // console.log("data:", mdata);
 //   return (
 //     <div
 //       style={{
@@ -96,37 +95,40 @@ import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 //     </div>
 //   );
 // }
+import { BiBody } from "react-icons/bi";
 
 export default function Kids_pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [mdata, setMdata] = useState([]);
-
-  // const [state, dispatch] = useReducer(reducer, initailData);
-
-  // const { product, isError, isloading } = state;
-  // console.log(" state:", state);
-
-  // const [mdata, setMdata] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  let searchResult = searchParams.get("query");
+  // console.log(searchResult);
+  useEffect(() => {
+    getData();
+  }, [searchParams]);
   const getData = () => {
     axios
       .get("http://localhost:3040/Child_shoe")
       .then((res) => {
-        setMdata(res.data);
-        console.log(res.data);
+        // setMdata(res.data);
+        let data = res.data;
+        if (searchResult) {
+          data = data.filter((el) => {
+            searchResult = searchResult.toLowerCase();
+
+            return (
+              el.brand.toLowerCase().includes(searchResult) ||
+              el.category.toLowerCase().includes(searchResult) ||
+              el.title.toLowerCase().includes(searchResult)
+            );
+          });
+        }
+        setMdata(data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
-  // console.log("products :", product);
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
@@ -189,7 +191,6 @@ const SidebarContent = ({ onClose, ...rest }) => {
   //     .get("http://localhost:3040/Child_shoe")
   //     .then((res) => {
   //       setMdata(res.data);
-  //       console.log(res.data);
   //     })
   //     .catch((err) => {
   //       console.log(err);
@@ -200,12 +201,9 @@ const SidebarContent = ({ onClose, ...rest }) => {
   //   getData();
   // }, []);
 
-  // // console.log("products :", product);
-
   // const handleclick = () => {
   //   let asc = mdata.sort((a, b) => a.price - b.price);
   //   setMdata([...asc]);
-  //   console.log("asc: ", mdata);
   // };
 
   return (
@@ -229,41 +227,49 @@ const SidebarContent = ({ onClose, ...rest }) => {
         Home
       </NavItem>
 
+      <NavItem fontSize={"20px"} key="faizan" icon={FiTrendingUp}>
+        {" "}
+        Sort
+      </NavItem>
+
       <NavItem key="faizan" icon={FiCompass}>
         {" "}
         Price Low to High
       </NavItem>
-      <NavItem key="faizan" icon={FiTrendingUp}>
-        {" "}
-        Trending
-      </NavItem>
-      <NavItem key="faizan" icon={FiStar}>
-        {" "}
-        Star
-      </NavItem>
-      <NavItem key="faizan" icon={FiSettings}>
+      <NavItem key="faizan" icon={FiCompass}>
         {" "}
         Price High to Low
       </NavItem>
-      <NavItem key="faizan" icon={BsFillAwardFill}>
+
+      <NavItem fontSize={"20px"} key="faizan" icon={FiTrendingUp}>
         {" "}
-        Home
-      </NavItem>
-      <NavItem key="faizan" icon={FiToggleRight}>
-        {" "}
-        Trending
-      </NavItem>
-      <NavItem key="faizan" icon={FiCompass}>
-        {" "}
-        Composs
+        Filter
       </NavItem>
       <NavItem key="faizan" icon={FiStar}>
         {" "}
-        Star
+        Ratings
       </NavItem>
-      <NavItem key="faizan" icon={FiSettings}>
+
+      <NavItem key="faizan" icon={BiBody}>
         {" "}
-        Setting
+        Mens
+      </NavItem>
+      <NavItem key="faizan" icon={BiBody}>
+        {" "}
+        Womens
+      </NavItem>
+      <NavItem key="faizan" icon={BiBody}>
+        {" "}
+        Kids
+      </NavItem>
+      <NavItem key="faizan" icon={BsFillAwardFill}>
+        {" "}
+        Nike
+      </NavItem>
+
+      <NavItem key="faizan" icon={BsFillAwardFill}>
+        {" "}
+        Puma
       </NavItem>
     </Box>
   );

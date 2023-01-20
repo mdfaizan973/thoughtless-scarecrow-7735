@@ -22,6 +22,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 const NavLink = ({ children }) => (
   <Link
@@ -37,12 +38,17 @@ const NavLink = ({ children }) => (
     {children}
   </Link>
 );
-// https://cdn-icons-png.flaticon.com/512/263/263142.png
-// <Image src="./logo.png.png" alt="Dan Abramov" width="60%" />
-//
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  let navigate = useNavigate();
+  const handlSearch = (e) => {
+    if (e.key === "Enter") {
+      let searchResult = e.target.value;
+      navigate(`/all_pro/?query=${searchResult}`);
+    }
+  };
+
   return (
     <div>
       <Box
@@ -68,6 +74,7 @@ export default function Navbar() {
             bg={useColorModeValue("shyblue", "gray")}
             width="60%"
             placeholder="Search your products..."
+            onKeyDown={(e) => handlSearch(e)}
           />
           <Flex alignItems={"center"} marginLeft={"30px"}>
             <Stack direction={"row"} spacing={7}>
