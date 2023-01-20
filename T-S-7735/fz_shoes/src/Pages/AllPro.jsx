@@ -1,77 +1,3 @@
-// import React from "react";
-// import Mens_Card from ".//Mens_Card";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
-// export default function Mens_Pro() {
-//   const [mdata, setMdata] = useState([]);
-//   const getData = () => {
-//     axios
-//       .get("http://localhost:3040/products_mens")
-//       .then((res) => {
-//         setMdata(res.data);
-//         console.log(res.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
-//   useEffect(() => {
-//     getData();
-//   }, []);
-
-//   // console.log("data:", mdata);
-//   return (
-//     <div
-//       style={{
-//         display: "flex",
-//         width: "98%",
-//         margin: "auto",
-//         marginTop: "70px",
-//       }}
-//     >
-//       <div
-//         style={{
-//           border: "2px solid yellow",
-//           width: "20%",
-//         }}
-//       >
-//         {" "}
-//         <h1>sidebar</h1>
-//       </div>
-//       <div style={{ width: "80%" }}>
-//         <h1>Menspro</h1>
-//         <Grid
-//           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
-//           width={"90%"}
-//           margin={"auto"}
-//           gap={2}
-//         >
-//           {mdata?.length > 0 &&
-//             mdata?.map((e) => {
-//               return (
-//                 <GridItem id={e.id} w="100%" h="100%">
-//                   <Mens_Card
-//                     id={e.id}
-//                     title={e.title}
-//                     image1={e.image1}
-//                     image2={e.image2}
-//                     price={e.price}
-//                     discription={e.discription}
-//                     category={e.category}
-//                     brand={e.brand}
-//                   />
-//                 </GridItem>
-//               );
-//             })}
-//         </Grid>
-//       </div>
-//     </div>
-//   );
-// }
-
-// new templete is going to start from heare____________________________
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 // import ProductCard from "..//Components/ProductCard";
@@ -103,35 +29,107 @@ import { BsFillAwardFill } from "react-icons/bs";
 import Mens_Card from ".//Mens_Card";
 import { useState } from "react";
 import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
+// export default function Kids_pro() {
+//   const [mdata, setMdata] = useState([]);
+//   const getData = () => {
+//     axios
+//       .get("http://localhost:3040/Child_shoe")
+//       .then((res) => {
+//         setMdata(res.data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   };
+
+//   useEffect(() => {
+//     getData();
+//   }, []);
+
+//   return (
+//     <div
+//       style={{
+//         display: "flex",
+//         width: "98%",
+//         margin: "auto",
+//         marginTop: "70px",
+//       }}
+//     >
+//       <div
+//         style={{
+//           border: "2px solid yellow",
+//           width: "20%",
+//         }}
+//       >
+//         {" "}
+//         <h1>sidebar</h1>
+//       </div>
+//       <div style={{ width: "80%" }}>
+//         <h1>Kidspro</h1>
+//         <Grid
+//           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
+//           width={"90%"}
+//           margin={"auto"}
+//           gap={2}
+//         >
+//           {mdata?.length > 0 &&
+//             mdata?.map((e) => {
+//               return (
+//                 <GridItem id={e.id} w="100%" h="100%">
+//                   <Mens_Card
+//                     id={e.id}
+//                     title={e.title}
+//                     image1={e.image1}
+//                     image2={e.image2}
+//                     price={e.price}
+//                     discription={e.discription}
+//                     category={e.category}
+//                     brand={e.brand}
+//                   />
+//                 </GridItem>
+//               );
+//             })}
+//         </Grid>
+//       </div>
+//     </div>
+//   );
+// }
 import { BiBody } from "react-icons/bi";
 
-export default function Mens_Pro({ children }) {
+export default function AllPro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const [state, dispatch] = useReducer(reducer, initailData);
-  // const { product, isError, isloading } = state;
-  // console.log(" state:", state);
-
   const [mdata, setMdata] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  let searchResult = searchParams.get("query");
+  // console.log(searchResult);
+  useEffect(() => {
+    getData();
+  }, [searchParams]);
   const getData = () => {
     axios
-      .get("http://localhost:3040/products_mens")
+      .get("http://localhost:3040/all_pro")
       .then((res) => {
-        setMdata(res.data);
-        console.log(res.data);
+        // setMdata(res.data);
+        let data = res.data;
+        if (searchResult) {
+          data = data.filter((el) => {
+            searchResult = searchResult.toLowerCase();
+
+            return (
+              el.brand.toLowerCase().includes(searchResult) ||
+              el.category.toLowerCase().includes(searchResult) ||
+              el.title.toLowerCase().includes(searchResult)
+            );
+          });
+        }
+        setMdata(data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
-  // console.log("products :", product);
-
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -187,6 +185,27 @@ export default function Mens_Pro({ children }) {
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
+  // const [mdata, setMdata] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:3040/Child_shoe")
+  //     .then((res) => {
+  //       setMdata(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // const handleclick = () => {
+  //   let asc = mdata.sort((a, b) => a.price - b.price);
+  //   setMdata([...asc]);
+  // };
+
   return (
     <Box
       bg={useColorModeValue("gray.100", "gray.900")}
@@ -199,7 +218,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Filter
+          Fz_Shop
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -299,6 +318,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 24 }}
       height="20"
+      margin="50px 0"
+      position="fixed"
+      width="100%"
+      zIndex="1"
       alignItems="center"
       bg={useColorModeValue("gray.100", "gray.900")}
       borderBottomWidth="1px"

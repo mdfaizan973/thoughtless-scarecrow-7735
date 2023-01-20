@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
-import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { SimpleGrid, Box, GridItem, Grid, color } from "@chakra-ui/react";
 import {
   IconButton,
   // Box,
@@ -17,6 +17,18 @@ import {
   FlexProps,
 } from "@chakra-ui/react";
 import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  Heading,
+  TableContainer,
+} from "@chakra-ui/react";
+import {
   FiHome,
   FiTrendingUp,
   FiCompass,
@@ -31,12 +43,13 @@ import { Button, ButtonGroup } from "@chakra-ui/react";
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 import { LinkasRouterLink } from "react-router-dom";
 import { Input, Stack } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
+const getwoData = () => {
+  return axios.get("http://localhost:3040/products_women");
+};
 export default function WomensAd({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // const [showPassword, setShowPassword] = useState(false);
-  // const cancelRef = React.useRef();
-  // const toast = useToast();
+  const [adata, setAdata] = useState([]);
 
   // const [otp, setOtp] = useState("");
   const [formstate, setFormState] = useState({
@@ -49,17 +62,18 @@ export default function WomensAd({ children }) {
     brands: "",
   });
 
+  useEffect(() => {
+    getwoData()
+      .then((res) => {
+        setAdata(res.data);
+        // console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [adata]);
+  console.log(adata);
   const addpro = () => {
-    // axios
-    //   .post(" http://localhost:8080/users", formstate)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     // setFormState(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
     axios
       .post("http://localhost:3040/products_women", formstate)
       .then((res) => {
@@ -70,11 +84,25 @@ export default function WomensAd({ children }) {
         console.log(err);
       });
 
-    console.log(formstate);
+    // console.log(formstate);
   };
 
+  const deleteHandle = (id) => {
+    axios
+      .delete(`http://localhost:3040/products_women/${id}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    deleteHandle();
+  }, [adata]);
+
   return (
-    <Box minH="100vh" bg={useColorModeValue("red.100", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -95,11 +123,22 @@ export default function WomensAd({ children }) {
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
+        <Heading
+          style={{
+            margin: "60px 0",
+            fontSize: "40px",
+            color: "teal",
+          }}
+        >
+          {" "}
+          Add Products
+        </Heading>
+
         <Stack
           spacing={3}
           padding="10px"
           width="50%"
-          margin=" 100px auto"
+          margin="auto"
           border="2px solid grey"
           borderRadius="10px"
         >
@@ -178,6 +217,49 @@ export default function WomensAd({ children }) {
           </Button>
         </Stack>
       </Box>
+
+      <TableContainer>
+        <Table
+          marginLeft="330px"
+          width="70%"
+          variant="striped"
+          colorScheme="teal"
+        >
+          <TableCaption>Imperial to metric conversion factors</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Title</Th>
+              <Th>Image-1</Th>
+              <Th>Category</Th>
+              <Th>Brand</Th>
+              <Th isNumeric>Price</Th>
+
+              <Th>Delete</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {adata.map((el) => (
+              <Tr key={el.id}>
+                <Td> {el.title} </Td>
+                <Td>
+                  <img width={"105"} src={el.image1} alt={el.title} />
+                </Td>
+                <Td> {el.category} </Td>
+                <Td>{el.brand}</Td>
+
+                <Td isNumeric>₹ {el.price} </Td>
+                <Td>
+                  <button onClick={() => deleteHandle(el.id)}>
+                    {" "}
+                    <DeleteIcon boxSize={6} />
+                  </button>
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+          <Tfoot></Tfoot>
+        </Table>
+      </TableContainer>
     </Box>
   );
 }

@@ -16,6 +16,7 @@ import {
   BoxProps,
   FlexProps,
 } from "@chakra-ui/react";
+import { Heading, Image, useBreakpointValue } from "@chakra-ui/react";
 import {
   FiHome,
   FiTrendingUp,
@@ -33,46 +34,6 @@ import { LinkasRouterLink } from "react-router-dom";
 import { Input, Stack } from "@chakra-ui/react";
 export default function Admin({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // const [showPassword, setShowPassword] = useState(false);
-  // const cancelRef = React.useRef();
-  // const toast = useToast();
-
-  // const [otp, setOtp] = useState("");
-  const [formstate, setFormState] = useState({
-    title: "",
-    image1: "",
-    image2: "",
-    category: "",
-    discription: "",
-    price: "",
-    brands: "",
-  });
-
-  const addpro = () => {
-    // axios
-    //   .post(" http://localhost:8080/users", formstate)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     // setFormState(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    axios
-      .post("http://localhost:3040/products_women", formstate)
-      .then((res) => {
-        console.log(res.data);
-        setFormState(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    console.log(formstate);
-  };
-
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -96,86 +57,62 @@ export default function Admin({ children }) {
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         <Stack
-          spacing={3}
-          padding="10px"
-          width="50%"
-          margin=" 100px auto"
-          border="2px solid grey"
-          borderRadius="10px"
+          minH={"100vh"}
+          marginTop={"50px"}
+          direction={{ base: "column", md: "row" }}
         >
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                title: e.target.value,
-              });
-            }}
-            placeholder="Title"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                image1: e.target.value,
-              });
-            }}
-            placeholder="Image-1"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                image2: e.target.value,
-              });
-            }}
-            placeholder="Image-2"
-            variant="Filled"
-          />{" "}
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                category: e.target.value,
-              });
-            }}
-            placeholder="Category"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                brand: e.target.value,
-              });
-            }}
-            placeholder="Brand"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                price: e.target.value,
-              });
-            }}
-            placeholder="Price"
-            variant="Filled"
-          />
-          <Input
-            onChange={(e) => {
-              setFormState({
-                ...formstate,
-                discription: e.target.value,
-              });
-            }}
-            placeholder="Discription"
-            variant="Filled"
-          />
-          <Button onClick={addpro} size="md" colorScheme="blue">
-            Button
-          </Button>
+          <Flex p={8} flex={1} align={"center"} justify={"center"}>
+            <Stack spacing={6} w={"full"} maxW={"lg"}>
+              <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+                <Text
+                  as={"span"}
+                  position={"relative"}
+                  _after={{
+                    content: "''",
+                    width: "full",
+                    height: useBreakpointValue({ base: "20%", md: "30%" }),
+                    position: "absolute",
+                    bottom: 1,
+                    left: 0,
+                    bg: "blue.400",
+                    zIndex: -1,
+                  }}
+                >
+                  Freelance
+                </Text>
+                <br />{" "}
+                <Text color={"blue.400"} as={"span"}>
+                  Design Projects
+                </Text>{" "}
+              </Heading>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+                The project board is an exclusive resource for contract work.
+                It's perfect for freelancers, agencies, and moonlighters.
+              </Text>
+              <Stack direction={{ base: "column", md: "row" }} spacing={4}>
+                <Button
+                  rounded={"full"}
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                >
+                  Create Project
+                </Button>
+                <Button rounded={"full"}>How It Works</Button>
+              </Stack>
+            </Stack>
+          </Flex>
+          <Flex flex={1}>
+            <Image
+              alt={"Login Image"}
+              objectFit={"cover"}
+              src={
+                "https://cdn3.vectorstock.com/i/1000x1000/43/92/stock-market-or-forex-trading-graph-in-graphic-vector-23614392.jpg"
+              }
+            />
+          </Flex>
         </Stack>
       </Box>
     </Box>

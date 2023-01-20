@@ -2,11 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import "./cards.css";
 import FpicCards from "./FpicCards";
+import FpicCards2 from "./FpicCards2";
+import { Heading } from "@chakra-ui/react";
 import { Link as RouterLink, Router } from "react-router-dom";
 export default function Cards() {
   return (
     <div style={{ marginTop: "40px" }}>
-      <h1> Brands </h1>
+      <Heading as="h1" size="xl" mt={6} mb={2}>
+        BRANDS
+      </Heading>
       <Container className="cards">
         <RouterLink to="/brands">
           <Wrap>
@@ -42,6 +46,7 @@ export default function Cards() {
         </RouterLink>
       </Container>
       <FpicCards />
+      <FpicCards2 />
     </div>
   );
 }

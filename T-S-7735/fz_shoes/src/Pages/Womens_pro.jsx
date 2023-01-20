@@ -178,6 +178,7 @@ import { BsFillAwardFill } from "react-icons/bs";
 import Mens_Card from ".//Mens_Card";
 import { useState } from "react";
 import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { BiBody } from "react-icons/bi";
 
 export default function Womens_Pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -281,41 +282,50 @@ const SidebarContent = ({ onClose, ...rest }) => {
         {" "}
         Home
       </NavItem>
-      <NavItem key="faizan" icon={FiTrendingUp}>
+
+      <NavItem fontSize={"20px"} key="faizan" icon={FiTrendingUp}>
         {" "}
-        Trending
+        Sort
+      </NavItem>
+
+      <NavItem key="faizan" icon={FiCompass}>
+        {" "}
+        Price Low to High
       </NavItem>
       <NavItem key="faizan" icon={FiCompass}>
         {" "}
-        Composs
+        Price High to Low
+      </NavItem>
+
+      <NavItem fontSize={"20px"} key="faizan" icon={FiTrendingUp}>
+        {" "}
+        Filter
       </NavItem>
       <NavItem key="faizan" icon={FiStar}>
         {" "}
-        Star
+        Ratings
       </NavItem>
-      <NavItem key="faizan" icon={FiSettings}>
+
+      <NavItem key="faizan" icon={BiBody}>
         {" "}
-        Setting
+        Mens
+      </NavItem>
+      <NavItem key="faizan" icon={BiBody}>
+        {" "}
+        Womens
+      </NavItem>
+      <NavItem key="faizan" icon={BiBody}>
+        {" "}
+        Kids
       </NavItem>
       <NavItem key="faizan" icon={BsFillAwardFill}>
         {" "}
-        Home
+        Nike
       </NavItem>
-      <NavItem key="faizan" icon={FiToggleRight}>
+
+      <NavItem key="faizan" icon={BsFillAwardFill}>
         {" "}
-        Trending
-      </NavItem>
-      <NavItem key="faizan" icon={FiCompass}>
-        {" "}
-        Composs
-      </NavItem>
-      <NavItem key="faizan" icon={FiStar}>
-        {" "}
-        Star
-      </NavItem>
-      <NavItem key="faizan" icon={FiSettings}>
-        {" "}
-        Setting
+        Puma
       </NavItem>
     </Box>
   );
