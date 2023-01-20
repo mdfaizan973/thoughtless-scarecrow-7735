@@ -11,6 +11,11 @@ import Siingle_pro from "..//Pages/Siingle_pro";
 import Womens_pro from "..//Pages/Womens_pro";
 import Mens_Pro from "..//Pages/Mens_Pro";
 import Blogs from "../Pages/Blogs";
+import Admin from "../Admins/Adimn";
+import WomensAd from "../Admins/WomensAd";
+import MensAd from "../Admins/MensAd";
+import KidsAd from "../Admins/KidsAd";
+
 export default function AllRoutes() {
   return (
     <div>
@@ -26,7 +31,11 @@ export default function AllRoutes() {
         <Route path="/mens_pro" element={<Mens_Pro />}></Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/products_mens/:id" element={<Siingle_pro />}></Route>{" "}
-        {/* this single page is for mens */}
+        {/* Admin */}
+        <Route path="/admin" element={<Admin />}></Route>
+        <Route path="/wooad" element={<WomensAd />}></Route>
+        <Route path="/menadd" element={<MensAd />}></Route>
+        <Route path="/kidsad" element={<KidsAd />}></Route>
       </Routes>
     </div>
   );

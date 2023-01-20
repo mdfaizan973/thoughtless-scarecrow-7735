@@ -96,13 +96,17 @@ import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 //     </div>
 //   );
 // }
+
 export default function Kids_pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [mdata, setMdata] = useState([]);
+
   // const [state, dispatch] = useReducer(reducer, initailData);
+
   // const { product, isError, isloading } = state;
   // console.log(" state:", state);
 
-  const [mdata, setMdata] = useState([]);
+  // const [mdata, setMdata] = useState([]);
   const getData = () => {
     axios
       .get("http://localhost:3040/Child_shoe")
@@ -123,6 +127,7 @@ export default function Kids_pro({ children }) {
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -178,6 +183,31 @@ export default function Kids_pro({ children }) {
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
+  // const [mdata, setMdata] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:3040/Child_shoe")
+  //     .then((res) => {
+  //       setMdata(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // // console.log("products :", product);
+
+  // const handleclick = () => {
+  //   let asc = mdata.sort((a, b) => a.price - b.price);
+  //   setMdata([...asc]);
+  //   console.log("asc: ", mdata);
+  // };
+
   return (
     <Box
       bg={useColorModeValue("gray.100", "gray.900")}
@@ -198,13 +228,14 @@ const SidebarContent = ({ onClose, ...rest }) => {
         {" "}
         Home
       </NavItem>
+
+      <NavItem key="faizan" icon={FiCompass}>
+        {" "}
+        Price Low to High
+      </NavItem>
       <NavItem key="faizan" icon={FiTrendingUp}>
         {" "}
         Trending
-      </NavItem>
-      <NavItem key="faizan" icon={FiCompass}>
-        {" "}
-        Composs
       </NavItem>
       <NavItem key="faizan" icon={FiStar}>
         {" "}
@@ -212,7 +243,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </NavItem>
       <NavItem key="faizan" icon={FiSettings}>
         {" "}
-        Setting
+        Price High to Low
       </NavItem>
       <NavItem key="faizan" icon={BsFillAwardFill}>
         {" "}
@@ -281,6 +312,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 24 }}
       height="20"
+      margin="50px 0"
+      position="fixed"
+      width="100%"
+      zIndex="1"
       alignItems="center"
       bg={useColorModeValue("gray.100", "gray.900")}
       borderBottomWidth="1px"
