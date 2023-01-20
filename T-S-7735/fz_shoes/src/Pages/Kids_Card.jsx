@@ -28,7 +28,7 @@ export default function Kids_Card({
 }) {
   // Child_shoe
   return (
-    <Center py={6}>
+    <Center zIndex={"-1"} py={6}>
       <RouterLink to={`/Child_shoe/${id}`}>
         <Box
           maxW={"270px"}
@@ -38,9 +38,16 @@ export default function Kids_Card({
           rounded={"md"}
           overflow={"hidden"}
         >
-          <Image h={"120px"} w={"full"} src={image1} objectFit={"cover"} />
+          <Image
+            h={"120px"}
+            zIndex={"-1"}
+            w={"full"}
+            src={image1}
+            objectFit={"cover"}
+          />
           <Flex justify={"center"} mt={-12}>
             <Avatar
+              zIndex={"-1"}
               size={"xl"}
               src={image2}
               alt={"Author"}

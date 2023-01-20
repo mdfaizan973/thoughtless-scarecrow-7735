@@ -1,9 +1,11 @@
 import React from "react";
 import CartIt from "..//Cards/CartIt";
 export default function Cartpage() {
+  // const styles={
+  //   mar
+  // }
   return (
-    <div>
-      <h1>Cartpage</h1>
+    <div style={{ marginTop: "30px" }}>
       <CartIt />
     </div>
   );

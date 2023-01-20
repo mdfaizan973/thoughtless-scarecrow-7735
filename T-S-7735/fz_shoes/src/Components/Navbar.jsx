@@ -77,6 +77,15 @@ export default function Navbar() {
               <Menu>
                 <RouterLink to="/cartpage">
                   <Center>
+                    {" "}
+                    <Text
+                      fontWeight="700"
+                      position="absolute"
+                      top="2px"
+                      color="red"
+                    >
+                      10
+                    </Text>
                     <Avatar
                       size={"sm"}
                       src={
@@ -124,12 +133,12 @@ export default function Navbar() {
                   </RouterLink>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
-                <Menu>
+                <Menu zIndex="1">
                   <MenuButton as={Button} bg="gray.300" variant="outline">
                     ≡
                   </MenuButton>
-                  <MenuList>
-                    <MenuGroup title="Menu">
+                  <MenuList zIndex="1">
+                    <MenuGroup zIndex="1" title="Menu">
                       <MenuItem></MenuItem>
                       <RouterLink to="/mens_pro">
                         {" "}

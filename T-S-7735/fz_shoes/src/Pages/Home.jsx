@@ -11,14 +11,14 @@ export default function Home() {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 350,
+    speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
   };
   return (
     <>
-      <Box textAlign="center" py={10} px={6}>
+      <Box textAlign="center" py={10} px={6} marginTop={"25px"}>
         <Slider {...settings}>
           <div>
             <img
