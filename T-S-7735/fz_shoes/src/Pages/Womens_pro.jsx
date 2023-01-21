@@ -1,16 +1,45 @@
-// import React from "react";
-// import Womens_Card from ".//Mens_Card";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
-// export default function Womens_Pro() {
+import React, { useEffect, useReducer } from "react";
+import axios from "axios";
+// import ProductCard from "..//Components/ProductCard";
+import {
+  IconButton,
+  // Box,
+  CloseButton,
+  Flex,
+  Icon,
+  useColorModeValue,
+  Link,
+  Drawer,
+  DrawerContent,
+  Text,
+  Heading,
+  useDisclosure,
+  Stack,
+  Button,
+  BoxProps,
+  FlexProps,
+} from "@chakra-ui/react";
+import {
+  FiHome,
+  FiTrendingUp,
+  FiCompass,
+  FiStar,
+  FiSettings,
+  FiMenu,
+} from "react-icons/fi";
+import { FiToggleRight } from "react-icons/fi";
+import { BsFillAwardFill } from "react-icons/bs";
+import Mens_Card from ".//Mens_Card";
+import { useState } from "react";
+import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
+// export default function Kids_pro() {
 //   const [mdata, setMdata] = useState([]);
 //   const getData = () => {
 //     axios
-//       .get("http://localhost:3040/products_women")
+//       .get("http://localhost:3040/Child_shoe")
 //       .then((res) => {
 //         setMdata(res.data);
-//         console.log(res.data);
 //       })
 //       .catch((err) => {
 //         console.log(err);
@@ -21,7 +50,6 @@
 //     getData();
 //   }, []);
 
-//   // console.log("data:", mdata);
 //   return (
 //     <div
 //       style={{
@@ -41,82 +69,7 @@
 //         <h1>sidebar</h1>
 //       </div>
 //       <div style={{ width: "80%" }}>
-//         <h1>Womenspro</h1>
-//         <Grid
-//           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
-//           width={"90%"}
-//           margin={"auto"}
-//           gap={2}
-//         >
-//           {mdata?.length > 0 &&
-//             mdata?.map((e) => {
-//               return (
-//                 <GridItem id={e.id} w="100%" h="100%">
-//                   <Womens_Card
-//                     id={e.id}
-//                     title={e.title}
-//                     image1={e.image1}
-//                     image2={e.image2}
-//                     price={e.price}
-//                     discription={e.discription}
-//                     category={e.category}
-//                     brand={e.brand}
-//                   />
-//                 </GridItem>
-//               );
-//             })}
-//         </Grid>
-//       </div>
-//     </div>
-//   );
-// }
-
-// new templete is going to start from here
-
-// import React from "react";
-// import Mens_Card from ".//Mens_Card";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
-// export default function Mens_Pro() {
-//   const [mdata, setMdata] = useState([]);
-//   const getData = () => {
-//     axios
-//       .get("http://localhost:3040/products_mens")
-//       .then((res) => {
-//         setMdata(res.data);
-//         console.log(res.data);
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
-//   useEffect(() => {
-//     getData();
-//   }, []);
-
-//   // console.log("data:", mdata);
-//   return (
-//     <div
-//       style={{
-//         display: "flex",
-//         width: "98%",
-//         margin: "auto",
-//         marginTop: "70px",
-//       }}
-//     >
-//       <div
-//         style={{
-//           border: "2px solid yellow",
-//           width: "20%",
-//         }}
-//       >
-//         {" "}
-//         <h1>sidebar</h1>
-//       </div>
-//       <div style={{ width: "80%" }}>
-//         <h1>Menspro</h1>
+//         <h1>Kidspro</h1>
 //         <Grid
 //           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
 //           width={"90%"}
@@ -145,68 +98,45 @@
 //     </div>
 //   );
 // }
-
-// new templete is going to start from heare____________________________
-import React, { useEffect, useReducer } from "react";
-import axios from "axios";
-// import ProductCard from "..//Components/ProductCard";
-import {
-  IconButton,
-  // Box,
-  CloseButton,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Link,
-  Drawer,
-  DrawerContent,
-  Text,
-  useDisclosure,
-  BoxProps,
-  FlexProps,
-} from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
-import { FiToggleRight } from "react-icons/fi";
-import { BsFillAwardFill } from "react-icons/bs";
-import Mens_Card from ".//Mens_Card";
-import { useState } from "react";
-import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 import { BiBody } from "react-icons/bi";
 
-export default function Womens_Pro({ children }) {
+export default function Kids_pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const [state, dispatch] = useReducer(reducer, initailData);
-  // const { product, isError, isloading } = state;
-  // console.log(" state:", state);
-
   const [mdata, setMdata] = useState([]);
-  const getData = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
+
+  let searchResult = searchParams.get("query");
+  // console.log(searchResult);
+  useEffect(() => {
+    getData(page);
+  }, [searchParams, page]);
+  const getData = (page) => {
     axios
-      .get("http://localhost:3040/products_women")
+      .get(`http://localhost:3040/products_women?_limit=8&_page=${page}`)
       .then((res) => {
-        setMdata(res.data);
-        console.log(res.data);
+        // setMdata(res.data);
+        let data = res.data;
+        if (searchResult) {
+          data = data.filter((el) => {
+            searchResult = searchResult.toLowerCase();
+
+            return (
+              el.brand.toLowerCase().includes(searchResult) ||
+              el.category.toLowerCase().includes(searchResult) ||
+              el.title.toLowerCase().includes(searchResult)
+            );
+          });
+        }
+        setMdata(data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
-  // console.log("products :", product);
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const handleChange = (val) => {
+    setPage(page + val);
+  };
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -230,11 +160,10 @@ export default function Womens_Pro({ children }) {
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {/*  {children}  */}
-        <h1>Kidspro</h1>
+        <Text margin={" 30px auto"}>Kidspro</Text>
         <Grid
           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
           width={"100%"}
-          margin={"auto"}
           marginTop={"50px"}
           gap={2}
         >
@@ -256,12 +185,63 @@ export default function Womens_Pro({ children }) {
               );
             })}
         </Grid>
+        <div style={{}}>
+          <div
+            style={{
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+            }}
+          >
+            <Stack direction="row" spacing={4} align="center">
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                isDisabled={page == 1}
+                onClick={() => handleChange(-1)}
+              >
+                ⬅️Prev
+              </Button>
+
+              <h3>{page}</h3>
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                onClick={() => handleChange(1)}
+              >
+                Next➡️
+              </Button>
+            </Stack>
+          </div>
+        </div>
       </Box>
     </Box>
   );
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
+  // const [mdata, setMdata] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:3040/Child_shoe")
+  //     .then((res) => {
+  //       setMdata(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // const handleclick = () => {
+  //   let asc = mdata.sort((a, b) => a.price - b.price);
+  //   setMdata([...asc]);
+  // };
+
   return (
     <Box
       bg={useColorModeValue("gray.100", "gray.900")}
@@ -374,6 +354,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 24 }}
       height="20"
+      margin="50px 0"
+      position="fixed"
+      width="100%"
+      zIndex="1"
       alignItems="center"
       bg={useColorModeValue("gray.100", "gray.900")}
       borderBottomWidth="1px"

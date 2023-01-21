@@ -74,6 +74,7 @@
 // new templete is going to start from heare____________________________
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
+import Loading from "../pro_cat_btn/Loading";
 // import ProductCard from "..//Components/ProductCard";
 import {
   IconButton,
@@ -87,8 +88,11 @@ import {
   DrawerContent,
   Text,
   useDisclosure,
+  Stack,
+  Button,
   BoxProps,
   FlexProps,
+  border,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -107,14 +111,12 @@ import { BiBody } from "react-icons/bi";
 
 export default function Mens_Pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const [state, dispatch] = useReducer(reducer, initailData);
-  // const { product, isError, isloading } = state;
-  // console.log(" state:", state);
+  const [page, setPage] = useState(1);
 
   const [mdata, setMdata] = useState([]);
-  const getData = () => {
+  const getData = (page) => {
     axios
-      .get("http://localhost:3040/products_mens")
+      .get(`http://localhost:3040/products_mens?_limit=8&_page=${page}`)
       .then((res) => {
         setMdata(res.data);
         console.log(res.data);
@@ -123,15 +125,14 @@ export default function Mens_Pro({ children }) {
         console.log(err);
       });
   };
-
+  console.log(mdata.length);
   useEffect(() => {
-    getData();
-  }, []);
+    getData(page);
+  }, [page]);
   // console.log("products :", product);
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const handleChange = (val) => {
+    setPage(page + val);
+  };
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
@@ -155,11 +156,11 @@ export default function Mens_Pro({ children }) {
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {/*  {children}  */}
-        <h1>Kidspro</h1>
+        <Text margin={" 30px auto"}>MensPro</Text>
         <Grid
           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
           width={"100%"}
-          margin={"auto"}
+          margin={"  auto"}
           marginTop={"50px"}
           gap={2}
         >
@@ -181,6 +182,37 @@ export default function Mens_Pro({ children }) {
               );
             })}
         </Grid>
+
+        <div style={{}}>
+          <div
+            style={{
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+              margin: "auto",
+            }}
+          >
+            <Stack direction="row" spacing={4} align="center">
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                isDisabled={page == 1}
+                onClick={() => handleChange(-1)}
+              >
+                ⬅️Prev
+              </Button>
+
+              <h3>{page}</h3>
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                onClick={() => handleChange(1)}
+              >
+                Next➡️
+              </Button>
+            </Stack>
+          </div>
+        </div>
       </Box>
     </Box>
   );
@@ -299,6 +331,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 24 }}
       height="20"
+      margin="50px 0"
+      position="fixed"
+      width="100%"
+      zIndex="1"
       alignItems="center"
       bg={useColorModeValue("gray.100", "gray.900")}
       borderBottomWidth="1px"

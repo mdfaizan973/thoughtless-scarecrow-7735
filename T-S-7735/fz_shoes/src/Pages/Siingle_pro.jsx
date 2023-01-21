@@ -42,6 +42,9 @@ export default function Siingle_pro() {
     getDta();
   }, [id]);
   console.log(prods);
+
+  const handlecart = async () => {};
+
   return (
     <div>
       <Container maxW={"7xl"}>
@@ -156,6 +159,7 @@ export default function Siingle_pro() {
             </Stack>
 
             <Button
+              onClick={handlecart}
               rounded={"none"}
               w={"full"}
               mt={8}
