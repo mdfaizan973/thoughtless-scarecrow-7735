@@ -1453,6 +1453,17 @@
       "image2": "https://images.pexels.com/photos/4695156/pexels-photo-4695156.jpeg?auto=compress&cs=tinysrgb&w=600",
       "isFirstrItemChecked": false,
       "id": 44
+    },
+    {
+      "title": "Luxurious Shoes",
+      "image1": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAAC7CAMAAACuJKeLAAAAUVBMVEUADikFDi/DQQAAETIADz0AEEAADjgAEjsAFUIADzsADDEDCR8ACSQLDCQAEEGzNgACBh0CCygECicFBBQHCB6SKAEECyuPLwhFEgxqHwyWMA/TO8iJAAAAG3RSTlMTMdEL0s3bJh3X4GDqR8fU0XqV3MTarbXY0Xzl7MOtAAAJgklEQVR4nO2a62KjNhCFkSUkBAiDwMTe93/Qzk0CbJLu5rLtD50kjrO1zceZmSNht6qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKijZp/V8TnEqrNfwGmVbu756ADlFFOeIHR3bTPC+Tqv4em1p1ZDDtpuk97/Qyk+6/1F/yzS1w0BWPpad5XJZ4elgd5nEkstvtLfwNNB0d/PROw+28jEDWnR1Vx5EEZNfH7XH6mG8GQ7OadWl0XEZrTbss7uxxyzgz2ni5P259xHb8UTpNXaXdsvZta62vx/GkmLrr+3ke8Xucr7f73K9hnH9nlr9AtlB/jX3bA5ip22VUrw8aW29bYOv7dlwe4Ju3tl2aHwXrJijK1KOsMd4u4/TshA5gZ9vCI+bemxpc9cYY+PNnyRanHRyEHfMeJuDlIRHBeugyi/it9+BZC/enn5xPCFi99kJmvIHJfO4yLHTbA0sLRgFPW9fGzmCZjfEHs0OvgQqJ1QIwvyzjIQ40tn47AxYUcIQ2hF91jWy9XWL7W+vZ58CmmfyCHwtcUCZss22R6uA/jyPaWaNhHhqspi9L9vV2VD+DxoVkx7j9oc3W0GiQ6yBZISJawiKf4BFgG/7Vt76uWzwnp39iixLYLfzCJvPejog20+2I91qqIrkEcENtfDvCPUvN5sHPZQpV6JrvRdMLF7KFccO5NBhRACUakdeTDIGxb94SKgrIaoheeJXzdfazCtJfVEuMAugcQMS/CAoaz4KLFkmwBQ33vqGH1sjZQrhB/PbjvHzjlg0yCvO8vz/uCAHHx0NbQKSew3GwJMRD28Q7MM3jsGDX9WgkpC+UP3bftS3C1ges2/V6fRvRMovlZBrsN8Fix4yYhlXEW0GjZMOS2hmWrQWz7Rvg4LX6O2Bd4GdBMrHNIIEwtWyYIbPQ0bVrVMRSErDvqaaQHb7GaJmXrvtyhCjw64FcoOv10UoNiY6R2Dv+Rlq7wg67aRrYbaNt5BpVtKa8odUeB/VrZJjqtxv6xWRQTstftpXC2lRWpLAmEhWpqjq0z0ua1EbmwdQDzPWkVPP5kkLvI9f1MSeyRUxLZlEdue2thRIilhOusBqWpWUUJ0AyBJZc+HOO02dnQS8PArvPt8tlV06bui2Po7XDpAjKObyFSg7cijzIbcuBIvEGpwbzAHfW7lNo+o5cgDXfL4nsjVssV5KxYkAmMgt+qhA95a1HF7uVHG3bmdhqDl7oxxoXihUj5I/pbgB2QzCuJaFxOVN8WSohGeUckVUKzOIsG/IgDHQCGMvUcNx3wwBkA3zHKShwWeuM+C+sAcDu82PGm0sWlTPFF2jVyCRYDv2hhdNLy1HD6Q6Nhd0HwOHmqOZv1ICi23WNU9cFBQrdR5mif91Qj8fjdr9fdmRgWu4vuB26htCaJkTDC7oxUFwZAzQx8rKAT4D4m1vo/gUehJskhkra/qjHd68DEewOumGrXfZkYFouJQ5kDWgNlJAObKiGTcMWYsetvC5YP00rT4vB6LXUiIZabTiReW/d128I9oBLxfsV8A5ob36XrQBoppViHrFWdpAGtGm6gePLmwk7EDZxRpZVY8RfKivAHQix/d7JYQQj3W9A97gcTVtan9vM8w4DzTNglnQcttyUd5AUJ5xwhhYJL+sq7+XqnRCLfKzPd+b6caMY43S9POn6touLHGjSbtxyKqZErWk+eWq7wRrZhuStEgdc2sQxFIXJuWM3BrsI2wvZgjjcaMznTUhgMAk0n3i4bT5dpVa6DpQdUqYyYl6y0Ehxw0dgabE8QduYpOFaT6WE1lpTy8UupQY4JuNppAG8kUbb0DxXnuoJXXZ22awpX8mxd8mWvCdLpmHgqslImMCakMyCKk61lE/IjKBl+3hOeFIZ7OxdHG7+ZNkp2pU6LZ2+zeZZabzc8Q01F81f2lHmDS85K0Xd9xnOZdecWOYiD+WH1by+rRksDSdvbWESXCMrAiw4YYAimSFd5QmN2TDrIxVHx1SdgHWwNOACEeDXL9Ab6HUMrphpe8+Eyto6TQKnGe3FZEjrY2uJVbjEDrvMQMdOwFwHWLRyqZyWFQ49oBKnQJJpRnaxMpxsXcsrQONoWc/tw64NuXC84pujXQM5dgamA0qxHMLlgEJIQleIh2nyxjRe1qhdu62BFkqsXC2XKTnks32yCUr5tVsB1EmPdcjFaA6w5NdR+DQXqMrjyxTsmo6bPBdPiLh4NJp7q5gP70SMnmcu8mtzjDh2aIxK/4AlxgpPcZBAM+JdnoWcXIazgrC8lWE8LkfZN9qgqGcwx1whc21uZTy1FwBCB6owxXVo845t51m+lQs969Eyn5EOfIY3mXCMjwx7LeGOUVpQ4Ki6DZwV8KEn6dKAolfaUACpqIPsGQ+24SKmKrqw+ZDrYJeMP4f5K6AUWB7jYCs6AeIKmyvf5t0lvTmDOMOQmy6D4W4uYMfTAZ5aX6sdlnJPYHln6hp3LjGPZpk6sBLKbopxwOWq9fm6JOUIlxgumIWK9nSMQ9cDFXXKPikSV/IoXQy5Ri6NXuv7fC7yJD4MHJUQ12Fby3G/Dxt+xW+j0TQ1SvET8NGUXXglkLlygDWJhw1z2bLGHaqa4J4qz+e1w0MP8OB4hKbKH6bwsnooo2MkVnZsb1i6dMxPFt+ei5qetNE1z89umkNyNmxSJWWvjm1PZXwCSy8uL5m3xy6dnMtzQC2fuJTbp55wbf6lE8v3ty9+TQUMx75vjmQ7w1yzO2Enr7IdKHPJGnFcxnbeuY2sekZKM0Wle44KRWBTx3MpXNxIKr0k1186gQFVskQlzza/d4TquZ6Zil4VfqeOev3UyrFnsXtN13RObFhFteWX3RnmBGq/VuzvSbtlQpfaCu9D8HHBzvZhIsgccS2deOJSuRuclGBnWLJrs/uI+Nxt6Q6kg4I4pncJmtMPPLfZ7OI6xxTlvC0TMOFS0sVw7NTewclCELaSJjC1RzxwQfpGMgtO8IP/KQAXkongwbZFwm/seBFQ3cIHCd3IhoRuneSf4irpF6eUg2HtBCqsIWEFWhPgThfoBSg58R2fd6EkOTDVOsHD1Y4+bqAPmJdlHVdUBFyK45DDhRYyRMCn4tHgqTHiecEtauq4haaYAjzwvuRPPqzWFGx5217JL71Xetz2qdf2/pau0mM5TDnqaVh2ny198V3iLz27qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio6P+sfwAyGrsCv+iKKQAAAABJRU5ErkJggg==",
+      "image2": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT2A0CbCFp0nJT9eBMdkrdIuKAQttHrav978Yj7BTCfvBk5Y9_n3wiqDz-v9sj_GPFBBOGwslonKh0&usqp=CAc",
+      "category": "Mens Shoes",
+      "discription": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and",
+      "price": "5599",
+      "brands": "",
+      "brand": "Adidas",
+      "id": 45
     }
   ],
   "products_women": [
@@ -1842,6 +1853,52 @@
       "image2": "https://rukminim1.flixcart.com/image/128/128/xif0q/bootie/n/m/c/6-13-imb2101-pink-4-im-baby-12-original-imagg5grkhmyubrs.jpeg?q=70",
       "isFirstrItemChecked": false,
       "id": 9919
+    }
+  ],
+  "cartitems": [
+    {
+      "title": "Supers",
+      "discription": "These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. ",
+      "brand": "Reebok",
+      "price": "999",
+      "category": "Kids Shoes",
+      "image1": "https://media.crocs.com/images/t_thumbnail/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs-women-s-classic-platform-lined-clog",
+      "image2": "https://media.crocs.com/images/t_thumbnail/f_auto%2Cq_auto/products/208233_5Q6_ALT100/crocs-classic-platform-glitter-slide",
+      "isFirstrItemChecked": false,
+      "id": 9904
+    },
+    {
+      "title": "Ergonomic Shoes",
+      "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+      "brand": "Nike",
+      "price": "1899",
+      "category": "Mens Shoes",
+      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=5346",
+      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=7929",
+      "isFirstrItemChecked": false,
+      "id": 9
+    },
+    {
+      "title": "FOOTLANCE",
+      "discription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It",
+      "brand": "Adidas",
+      "price": "1099",
+      "category": "Womens Shoes",
+      "image1": "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/x/j/p/-original-imaghsf4unx2fhkm.jpeg?q=70",
+      "image2": "https://rukminim1.flixcart.com/image/128/128/xif0q/shoe/g/z/s/7-kc128-purple-k-footlance-purple-original-imaghknnnfcysukw.jpeg?q=70",
+      "isFirstrItemChecked": false,
+      "id": 834
+    },
+    {
+      "title": "Practical Wooden Shoes",
+      "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+      "brand": "Puma",
+      "price": "2599",
+      "category": "Mens Shoes",
+      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
+      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
+      "isFirstrItemChecked": false,
+      "id": 11
     }
   ]
 }

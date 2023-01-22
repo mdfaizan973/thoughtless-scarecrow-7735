@@ -23,9 +23,10 @@ import {
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
-
+//
 export default function Siingle_pro() {
   const [prods, setProds] = useState([]);
+  const [cartdata, setCartdata] = useState([]);
   const { id } = useParams();
   const getDta = async () => {
     axios
@@ -41,7 +42,36 @@ export default function Siingle_pro() {
   useEffect(() => {
     getDta();
   }, [id]);
-  console.log(prods);
+  // console.log(prods);
+
+  let count = 0;
+  const handlecart = async () => {
+    let yesdata = count + 1;
+    localStorage.setItem("totaltotal", yesdata);
+    axios
+      .get(`http://localhost:3040/all_pro/${id}`)
+      .then((res) => {
+        cartval(res.data);
+        // console.log(res.data);
+        setCartdata(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("cartdata: ", cartdata);
+    const cartval = (pr) => {
+      // console.log("pr: ", pr);
+      axios
+        .post("http://localhost:3040/cartitems", pr)
+        .then((res) => {
+          console.log("res.data: ", res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+  };
+
   return (
     <div>
       <Container maxW={"7xl"}>
@@ -156,6 +186,7 @@ export default function Siingle_pro() {
             </Stack>
 
             <Button
+              onClick={handlecart}
               rounded={"none"}
               w={"full"}
               mt={8}
