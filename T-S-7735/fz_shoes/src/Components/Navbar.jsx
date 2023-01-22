@@ -48,6 +48,8 @@ export default function Navbar() {
       navigate(`/all_pro/?query=${searchResult}`);
     }
   };
+  let anser = localStorage.getItem("totalcart") || 0;
+  console.log("sdfasjfdsjfksjfksjfkjskdfa:- ", anser);
 
   return (
     <div>
@@ -91,7 +93,7 @@ export default function Navbar() {
                       top="2px"
                       color="red"
                     >
-                      10
+                      {anser}
                     </Text>
                     <Avatar
                       size={"sm"}

@@ -1,16 +1,45 @@
-// import React from "react";
-// import Mens_Card from ".//Mens_Card";
-// import { useState, useEffect } from "react";
-// import axios from "axios";
-// import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
-// export default function Mens_Pro() {
+import React, { useEffect, useReducer } from "react";
+import axios from "axios";
+// import ProductCard from "..//Components/ProductCard";
+import {
+  IconButton,
+  // Box,
+  CloseButton,
+  Flex,
+  Icon,
+  useColorModeValue,
+  Link,
+  Drawer,
+  DrawerContent,
+  Text,
+  Heading,
+  useDisclosure,
+  Stack,
+  Button,
+  BoxProps,
+  FlexProps,
+} from "@chakra-ui/react";
+import {
+  FiHome,
+  FiTrendingUp,
+  FiCompass,
+  FiStar,
+  FiSettings,
+  FiMenu,
+} from "react-icons/fi";
+import { FiToggleRight } from "react-icons/fi";
+import { BsFillAwardFill } from "react-icons/bs";
+import Mens_Card from ".//Mens_Card";
+import { useState } from "react";
+import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
+// export default function Kids_pro() {
 //   const [mdata, setMdata] = useState([]);
 //   const getData = () => {
 //     axios
-//       .get("http://localhost:3040/products_mens")
+//       .get("http://localhost:3040/Child_shoe")
 //       .then((res) => {
 //         setMdata(res.data);
-//         console.log(res.data);
 //       })
 //       .catch((err) => {
 //         console.log(err);
@@ -21,7 +50,6 @@
 //     getData();
 //   }, []);
 
-//   // console.log("data:", mdata);
 //   return (
 //     <div
 //       style={{
@@ -41,7 +69,7 @@
 //         <h1>sidebar</h1>
 //       </div>
 //       <div style={{ width: "80%" }}>
-//         <h1>Menspro</h1>
+//         <h1>Kidspro</h1>
 //         <Grid
 //           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
 //           width={"90%"}
@@ -70,78 +98,68 @@
 //     </div>
 //   );
 // }
-
-// new templete is going to start from heare____________________________
-import React, { useEffect, useReducer } from "react";
-import axios from "axios";
-import Loading from "../pro_cat_btn/Loading";
-// import ProductCard from "..//Components/ProductCard";
-import {
-  IconButton,
-  // Box,
-  CloseButton,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Link,
-  Drawer,
-  DrawerContent,
-  Text,
-  useDisclosure,
-  Stack,
-  Button,
-  BoxProps,
-  FlexProps,
-  border,
-} from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
-import { FiToggleRight } from "react-icons/fi";
-import { BsFillAwardFill } from "react-icons/bs";
-import Mens_Card from ".//Mens_Card";
-import { useState } from "react";
-import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 import { BiBody } from "react-icons/bi";
 
-export default function Mens_Pro({ children }) {
+export default function Kids_pro({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [mdata, setMdata] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(1);
 
-  const [mdata, setMdata] = useState([]);
+  let searchResult = searchParams.get("query");
+  // console.log(searchResult);
+  useEffect(() => {
+    getData(page);
+  }, [searchParams, page]);
   const getData = (page) => {
     axios
       .get(`http://localhost:3040/products_mens?_limit=8&_page=${page}`)
       .then((res) => {
-        setMdata(res.data);
-        console.log(res.data);
+        // setMdata(res.data);
+        let data = res.data;
+        if (searchResult) {
+          data = data.filter((el) => {
+            searchResult = searchResult.toLowerCase();
+
+            return (
+              el.brand.toLowerCase().includes(searchResult) ||
+              el.category.toLowerCase().includes(searchResult) ||
+              el.title.toLowerCase().includes(searchResult)
+            );
+          });
+        }
+        setMdata(data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  console.log(mdata.length);
-  useEffect(() => {
-    getData(page);
-  }, [page]);
-  // console.log("products :", product);
   const handleChange = (val) => {
     setPage(page + val);
+  };
+
+  const handleltoh = () => {
+    let asc = mdata.sort((a, b) => a.price - b.price);
+    setMdata([...asc]);
+    // alert("hello");
+  };
+  const handlehtol = () => {
+    let desc = mdata.sort((a, b) => a.price - b.price);
+    setMdata([...desc]);
+    // alert("hello");
   };
   return (
     <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
       <SidebarContent
+        onClick={handleltoh}
+        // onClick={handlehtol}
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
+        onClick={handleltoh}
         placement="left"
         onClose={onClose}
         returnFocusOnClose={false}
@@ -153,14 +171,17 @@ export default function Mens_Pro({ children }) {
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
-      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+      <MobileNav
+        display={{ base: "flex", md: "none" }}
+        onOpen={onOpen}
+        onClick={handleltoh}
+      />
       <Box ml={{ base: 0, md: 60 }} p="4">
         {/*  {children}  */}
-        <Text margin={" 30px auto"}>MensPro</Text>
+        <Text margin={" 30px auto"}>Kidspro</Text>
         <Grid
           templateColumns={{ sm: "1fr", sm: "repeat(4, 1fr)" }}
           width={"100%"}
-          margin={"  auto"}
           marginTop={"50px"}
           gap={2}
         >
@@ -182,7 +203,6 @@ export default function Mens_Pro({ children }) {
               );
             })}
         </Grid>
-
         <div style={{}}>
           <div
             style={{
@@ -218,7 +238,23 @@ export default function Mens_Pro({ children }) {
   );
 }
 
-const SidebarContent = ({ onClose, ...rest }) => {
+const SidebarContent = ({ handleltoh, onClose, ...rest }) => {
+  // const [mdata, setMdata] = useState([]);
+  // const getData = () => {
+  //   axios
+  //     .get("http://localhost:3040/Child_shoe")
+  //     .then((res) => {
+  //       setMdata(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
   return (
     <Box
       bg={useColorModeValue("gray.100", "gray.900")}
@@ -245,7 +281,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         Sort
       </NavItem>
 
-      <NavItem key="faizan" icon={FiCompass}>
+      <NavItem onClick={handleltoh} key="faizan" icon={FiCompass}>
         {" "}
         Price Low to High
       </NavItem>
@@ -288,7 +324,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
   );
 };
 
-const NavItem = ({ icon, children, ...rest }) => {
+const NavItem = ({ handleltoh, icon, children, ...rest }) => {
   return (
     <Link
       href="#"
@@ -307,6 +343,7 @@ const NavItem = ({ icon, children, ...rest }) => {
           bg: "cyan.400",
           color: "white",
         }}
+        onClick={handleltoh}
         {...rest}
       >
         {icon && (
@@ -325,7 +362,7 @@ const NavItem = ({ icon, children, ...rest }) => {
   );
 };
 
-const MobileNav = ({ onOpen, ...rest }) => {
+const MobileNav = ({ handleltoh, onOpen, ...rest }) => {
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -341,6 +378,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent="flex-start"
       {...rest}
+      onClick={handleltoh}
     >
       <IconButton
         variant="outline"
