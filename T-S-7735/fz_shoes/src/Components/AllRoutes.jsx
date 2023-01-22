@@ -16,7 +16,7 @@ import WomensAd from "../Admins/WomensAd";
 import MensAd from "../Admins/MensAd";
 import KidsAd from "../Admins/KidsAd";
 import AllPro from "../Pages/AllPro";
-import Payment from "./../Pages/Payment";
+// import Payment from "./../Pages/Payment";
 
 export default function AllRoutes() {
   return (
@@ -38,9 +38,8 @@ export default function AllRoutes() {
         <Route path="/wooad" element={<WomensAd />}></Route>
         <Route path="/menadd" element={<MensAd />}></Route>
         <Route path="/kidsad" element={<KidsAd />}></Route>
-        {/* all */}
         <Route path="/all_pro" element={<AllPro />}></Route>
-        <Route path="/payment" element={<Payment />}></Route>
+        {/*  <Route path="/payment" element={<Payment />}></Route>  */}
       </Routes>
     </div>
   );

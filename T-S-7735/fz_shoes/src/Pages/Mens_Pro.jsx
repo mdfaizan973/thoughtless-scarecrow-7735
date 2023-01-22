@@ -156,6 +156,7 @@ export default function Kids_pro({ children }) {
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}

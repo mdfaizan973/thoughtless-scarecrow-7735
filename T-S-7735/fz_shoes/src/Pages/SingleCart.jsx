@@ -26,7 +26,7 @@ import {
 import { DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
 export default function SingleCart({ element, arr }) {
-  //   console.log("arr: ", arr.length);
+  console.log("arr: ", arr);
 
   const [ndata, setNdata] = useState([arr]);
   const [countt, setCountt] = useState(1);
