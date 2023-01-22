@@ -149,7 +149,7 @@ export default function Kids_pro({ children }) {
     // alert("hello");
   };
   return (
-    <Box minH="100vh" bg={useColorModeValue("teal.100", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("grey.100", "gray.900")}>
       <SidebarContent
         onClick={handleltoh}
         // onClick={handlehtol}

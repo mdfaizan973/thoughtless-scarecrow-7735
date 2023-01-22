@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 import axios from "axios";
+
 import { SimpleGrid, Box, GridItem, Grid } from "@chakra-ui/react";
 import {
   IconButton,
@@ -78,11 +79,11 @@ export default function Admin({ children }) {
                     zIndex: -1,
                   }}
                 >
-                  Freelance
+                  Fz Shoes
                 </Text>
                 <br />{" "}
                 <Text color={"blue.400"} as={"span"}>
-                  Design Projects
+                  The Fashion Shoes
                 </Text>{" "}
               </Heading>
               <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
@@ -90,17 +91,19 @@ export default function Admin({ children }) {
                 It's perfect for freelancers, agencies, and moonlighters.
               </Text>
               <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-                <Button
-                  rounded={"full"}
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                >
-                  Create Project
-                </Button>
-                <Button rounded={"full"}>How It Works</Button>
+                <RouterLink to="/">
+                  <Button
+                    rounded={"full"}
+                    bg={"blue.400"}
+                    color={"white"}
+                    _hover={{
+                      bg: "blue.500",
+                    }}
+                  >
+                    Shop
+                  </Button>
+                </RouterLink>
+                <Button rounded={"full"}>Hello India</Button>
               </Stack>
             </Stack>
           </Flex>
