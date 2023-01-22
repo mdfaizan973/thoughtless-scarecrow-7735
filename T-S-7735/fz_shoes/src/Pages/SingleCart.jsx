@@ -25,18 +25,28 @@ import {
 
 import { DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
-export default function SingleCart({ element, arr }) {
-  console.log("arr: ", arr);
+export default function SingleCart({ element, qty, setQty, i }) {
+  // console.log("arr: ", arr);
 
-  const [ndata, setNdata] = useState([arr]);
-  const [countt, setCountt] = useState(1);
+  const [ndata, setNdata] = useState([]);
+  // const [countt, setCountt] = useState(1);
 
+  // let sum = 0;
+  // for (let i = 0; i < arr.length; i++) {
+  //   sum += +arr[i].price;
+  // }
+  // console.log("sum" + sum);
   const handleinc = (val) => {
-    setCountt(countt + val);
+    // setQty(qty + val);
+    let arr = [...qty];
+    arr[i] = arr[i] + val;
+    setQty(arr);
   };
 
   const handledec = (val) => {
-    setCountt(countt + val);
+    let arr = [...qty];
+    arr[i] = arr[i] + val;
+    setQty(arr);
   };
 
   const deleteCartData = (id) => {
@@ -61,7 +71,7 @@ export default function SingleCart({ element, arr }) {
   //   }, 0);
   //   console.log("totalAmount: ", access);
 
-  useEffect(() => {}, [ndata]);
+  useEffect(() => {}, []);
   return (
     <div>
       <div>
@@ -91,7 +101,7 @@ export default function SingleCart({ element, arr }) {
                 <Text size="md"> ₹ {element.price} </Text>
                 <Text size="md" textDecoration="line-through">
                   {" "}
-                  ₹ {element.price * 1.7}{" "}
+                  ₹ {(element.price * 1.7).toFixed(2)}
                 </Text>
               </HStack>
             </CardBody>
@@ -108,12 +118,12 @@ export default function SingleCart({ element, arr }) {
                   variant="solid"
                   boxSize={10}
                   onClick={() => handleinc(-1)}
-                  isDisabled={countt == 1}
+                  isDisabled={qty[i] == 1}
                 >
                   -
                 </Button>
                 <Button variant="solid" colorScheme="teal" boxSize={6}>
-                  {countt}
+                  {qty[i]}
                 </Button>
                 <Button
                   variant="solid"

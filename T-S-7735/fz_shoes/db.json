@@ -1857,17 +1857,6 @@
   ],
   "cartitems": [
     {
-      "title": "Supers",
-      "discription": "These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. ",
-      "brand": "Reebok",
-      "price": "999",
-      "category": "Kids Shoes",
-      "image1": "https://media.crocs.com/images/t_thumbnail/f_auto%2Cq_auto/products/207938_2Y2_ALT100/crocs-women-s-classic-platform-lined-clog",
-      "image2": "https://media.crocs.com/images/t_thumbnail/f_auto%2Cq_auto/products/208233_5Q6_ALT100/crocs-classic-platform-glitter-slide",
-      "isFirstrItemChecked": false,
-      "id": 9904
-    },
-    {
       "title": "Ergonomic Shoes",
       "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
       "brand": "Nike",
@@ -1879,26 +1868,15 @@
       "id": 9
     },
     {
-      "title": "FOOTLANCE",
-      "discription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It",
-      "brand": "Adidas",
-      "price": "1099",
-      "category": "Womens Shoes",
-      "image1": "https://rukminim1.flixcart.com/image/832/832/xif0q/shoe/x/j/p/-original-imaghsf4unx2fhkm.jpeg?q=70",
-      "image2": "https://rukminim1.flixcart.com/image/128/128/xif0q/shoe/g/z/s/7-kc128-purple-k-footlance-purple-original-imaghknnnfcysukw.jpeg?q=70",
-      "isFirstrItemChecked": false,
-      "id": 834
-    },
-    {
-      "title": "Practical Wooden Shoes",
+      "title": "Ergonomic Shoes",
       "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
-      "brand": "Puma",
-      "price": "2599",
+      "brand": "Nike",
+      "price": "1599",
       "category": "Mens Shoes",
-      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
-      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
+      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=2078",
+      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=2078",
       "isFirstrItemChecked": false,
-      "id": 11
+      "id": 10
     }
   ]
 }

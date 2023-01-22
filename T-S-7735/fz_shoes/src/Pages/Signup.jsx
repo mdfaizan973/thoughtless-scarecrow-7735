@@ -25,6 +25,7 @@ import {
 
 import { useToast } from "@chakra-ui/react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { Link as RouterLink } from "react-router-dom";
 
 export default function Signup() {
   const auth = getAuth();
@@ -200,17 +201,19 @@ export default function Signup() {
                     })
                   }
                 >
-                  <Button
-                    loadingText="Submitting"
-                    size="lg"
-                    bg={"blue.400"}
-                    color={"white"}
-                    _hover={{
-                      bg: "blue.500",
-                    }}
-                  >
-                    Sign up
-                  </Button>
+                  <RouterLink to="/">
+                    <Button
+                      loadingText="Submitting"
+                      size="lg"
+                      bg={"blue.400"}
+                      color={"white"}
+                      _hover={{
+                        bg: "blue.500",
+                      }}
+                    >
+                      Sign up
+                    </Button>
+                  </RouterLink>
                 </Button>
               </Button>
             </Stack>

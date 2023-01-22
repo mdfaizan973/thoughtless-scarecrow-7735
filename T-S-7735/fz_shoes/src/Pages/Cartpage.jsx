@@ -4,6 +4,7 @@ import axios from "axios";
 import SingleCart from "./SingleCart";
 import FpicCards2 from "..//Cards/FpicCards2";
 import FpicCards from "..//Cards/FpicCards";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Stat,
   StatLabel,
@@ -25,14 +26,15 @@ import { Input, Text, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
 export default function Cartpage() {
   const [cdata, setData] = useState([]);
-  const [total_price, settotal_price] = useState(0);
-
+  const [qty, setQty] = useState([]);
   const getdataCart = () => {
     axios
       .get(`http://localhost:3040/cartitems`)
       .then((res) => {
         // console.log("mydata", res.data.title);
         setData(res.data);
+        let arr = new Array(res.data.length).fill(1);
+        setQty(arr);
       })
       .catch((err) => {
         console.log(err);
@@ -43,13 +45,26 @@ export default function Cartpage() {
     getdataCart();
   }, []);
 
+  let sum = 0;
+  for (let i = 0; i < cdata.length; i++) {
+    sum += +cdata[i].price * qty[i];
+  }
+  let totalcart = cdata.length;
+  console.log("cdata", totalcart);
+
   return (
     <div>
       <div style={{ display: "flex" }}>
         <div style={{ marginTop: "90px" }}>
           <Heading>Cart</Heading>
-          {cdata.map((el) => (
-            <SingleCart key={el.id} element={el} arr={cdata} />
+          {cdata.map((el, i) => (
+            <SingleCart
+              key={el.id}
+              element={el}
+              qty={qty}
+              setQty={setQty}
+              i={i}
+            />
           ))}
         </div>
 
@@ -70,13 +85,18 @@ export default function Cartpage() {
                 <Input type="tel" placeholder="Enter Code" />
               </InputGroup>
               <br />
-              <StatNumber> Order Total : ₹ 22220.00</StatNumber>
-              <StatHelpText> Discount : ₹ 19939</StatHelpText>
-              <StatHelpText>Total Cart : 4</StatHelpText>
+              <StatNumber> Order Total : ₹ {sum} </StatNumber>
+              <StatHelpText>
+                {" "}
+                Discount : ₹ {(sum * 1.7).toFixed(2)}{" "}
+              </StatHelpText>
+              <StatHelpText>Total Cart : {totalcart} </StatHelpText>
               <StatHelpText> Delivery : Feb 12 - Feb 28</StatHelpText>
             </Stat>
             <br />
-            <Button colorScheme="blue">Proceed to Cheackout</Button>
+            <RouterLink to="/payment">
+              <Button colorScheme="blue">Proceed to Cheackout</Button>
+            </RouterLink>
             <br /> <br />
           </Container>
         </div>
