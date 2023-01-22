@@ -20,6 +20,7 @@ import {
   Box,
   Container,
 } from "@chakra-ui/react";
+import { Input, Text, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 // import TransitionExample from "./SingleCart";
 import { Heading } from "@chakra-ui/react";
 export default function Cartpage() {
@@ -38,18 +39,6 @@ export default function Cartpage() {
       });
   };
 
-  // const total_price = 0;
-  // cdata.forEach((elems) => {
-
-  //       // console.log("data: ", cdata[i].price);
-  //   settotal_price((total_price += elems.price));
-  // })
-
-  // }
-  // console.log("total_price: ", total_price);
-  // let totalCount = cdata.length;
-  // console.log("cdata:: ", cdata.data.price);
-  // let ffgg = localStorage.setItem("totalcart", totalCount);
   useEffect(() => {
     getdataCart();
   }, []);
@@ -64,19 +53,31 @@ export default function Cartpage() {
           ))}
         </div>
 
-        <div
-          style={{ width: "30%", marginTop: "130px", border: "2px solid red" }}
-        >
-          <Container maxW="2xl" centerContent>
+        <div style={{ width: "30%", marginTop: "130px" }}>
+          <Container
+            maxW="2xl"
+            // centerContent
+            border="1px solid grey"
+            padding="10px"
+          >
             <Box padding="4" maxW="md">
               <Heading> Order Summary </Heading>
+              <hr />
             </Box>{" "}
             <Stat>
-              <StatLabel>Collected Fees</StatLabel>
-              <StatNumber>£0.00</StatNumber>
-              <StatHelpText>Feb 12 - Feb 28</StatHelpText>
+              <InputGroup>
+                <InputLeftAddon children="Apply Code" />
+                <Input type="tel" placeholder="Enter Code" />
+              </InputGroup>
+              <br />
+              <StatNumber> Order Total : ₹ 22220.00</StatNumber>
+              <StatHelpText> Discount : ₹ 19939</StatHelpText>
+              <StatHelpText>Total Cart : 4</StatHelpText>
+              <StatHelpText> Delivery : Feb 12 - Feb 28</StatHelpText>
             </Stat>
+            <br />
             <Button colorScheme="blue">Proceed to Cheackout</Button>
+            <br /> <br />
           </Container>
         </div>
       </div>
