@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import FpicCards from "..//Cards/FpicCards";
+// import { Router as RouterLink } from "react-router-dom";
 import {
   Box,
   chakra,
@@ -184,7 +185,6 @@ export default function Siingle_pro() {
                 </SimpleGrid>
               </Box>
             </Stack>
-
             <Button
               onClick={handlecart}
               rounded={"none"}
@@ -202,7 +202,6 @@ export default function Siingle_pro() {
             >
               Add to cart
             </Button>
-
             <Stack
               direction="row"
               alignItems="center"

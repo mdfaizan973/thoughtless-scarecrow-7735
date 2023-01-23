@@ -136,7 +136,7 @@ export default function Navbar() {
                   <br />
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>
-                  <RouterLink to="/login">
+                  <RouterLink to="/signup">
                     {" "}
                     <MenuItem>New Account</MenuItem>
                   </RouterLink>

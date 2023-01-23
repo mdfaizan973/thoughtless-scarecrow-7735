@@ -1,3 +1,13 @@
+# Name :- Md Faizan from fw22_0210 at masai school.
+
+# IA magager :- Mohsin Iqbal# Website :- https://fzshoes.netlify.app/
+
+Discription :- This the clone of "Crucs".com that i did during my construct week at masai school.
+
+# functionalaties:- Carousal,search,sorting,filtring,product details, authentication,cart,payments
+
+# Thnak you,
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

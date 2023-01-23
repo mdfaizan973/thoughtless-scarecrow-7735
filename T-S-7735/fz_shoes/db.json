@@ -1668,17 +1668,6 @@
   ],
   "child_shoe": [
     {
-      "title": "DUMPPY ",
-      "discription": "These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. ",
-      "brand": "Reebok",
-      "price": "2199",
-      "category": "Kids Shoes",
-      "image1": "https://rukminim1.flixcart.com/image/612/612/xif0q/kids-shoe/e/q/i/-original-imagg7hzyajz4dwr.jpeg?q=70",
-      "image2": "https://rukminim1.flixcart.com/image/128/128/kq5iykw0/kids-shoe/9/a/h/2-bs545-dealsinjaipur-original-imag48g9g67uetmy.jpeg?q=70",
-      "isFirstrItemChecked": false,
-      "id": 9902
-    },
-    {
       "title": "Supers",
       "discription": "These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. ",
       "brand": "Reebok",
@@ -1860,23 +1849,23 @@
       "title": "Ergonomic Shoes",
       "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
       "brand": "Nike",
-      "price": "1899",
-      "category": "Mens Shoes",
-      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=5346",
-      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=7929",
-      "isFirstrItemChecked": false,
-      "id": 9
-    },
-    {
-      "title": "Ergonomic Shoes",
-      "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
-      "brand": "Nike",
       "price": "1599",
       "category": "Mens Shoes",
       "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=2078",
       "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=2078",
       "isFirstrItemChecked": false,
       "id": 10
+    },
+    {
+      "title": "Practical Wooden Shoes",
+      "discription": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+      "brand": "Puma",
+      "price": "2599",
+      "category": "Mens Shoes",
+      "image1": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
+      "image2": "https://api.lorem.space/image/shoes?w=640&h=480&r=2565",
+      "isFirstrItemChecked": false,
+      "id": 11
     }
   ]
 }
