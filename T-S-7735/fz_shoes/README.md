@@ -1,6 +1,10 @@
 # Name :- Md Faizan from Fw22 Batch at masai school. Student Code :- fw22_0210
 
-# IA magager :- Mohsin Iqbal# Website :- https://fzshoes.netlify.app/
+# Website :- https://fzshoes.netlify.app/
+
+# IA magager (CW) :- Mohsin Iqbal
+
+# IA Magager (Sandeep Yadav)
 
 # Discription :- This the clone of "Crucs".com that i did during my construct week at masai school.
 
