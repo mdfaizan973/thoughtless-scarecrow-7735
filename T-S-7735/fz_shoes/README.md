@@ -2,7 +2,11 @@
 
 # IA magager :- Mohsin Iqbal# Website :- https://fzshoes.netlify.app/
 
-Discription :- This the clone of "Crucs".com that i did during my construct week at masai school.
+# Discription :- This the clone of "Crucs".com that i did during my construct week at masai school.
+
+## Fully Responsive with good UI
+
+# Tech Stack :- React js(FrontEnd) , Chakara UI(FrontEnd) , FireBase(Backend), JSON Server (Backend)
 
 # functionalaties:- Carousal,search,sorting,filtring,product details, authentication,cart,payments
 
