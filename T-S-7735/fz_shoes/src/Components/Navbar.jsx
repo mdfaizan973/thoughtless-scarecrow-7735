@@ -93,6 +93,7 @@ export default function Navbar() {
                       top="2px"
                       color="red"
                     >
+                      {/*}  */}
                       {anser}
                     </Text>
                     <Avatar
@@ -128,9 +129,7 @@ export default function Navbar() {
                   </Center>
 
                   <br />
-                  <Center>
-                    <p>Md Faizan</p>
-                  </Center>
+                  <Center>{/*  <p>Md Faizan</p> */}</Center>
                   <br />
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>
