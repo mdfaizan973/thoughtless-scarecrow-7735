@@ -12,7 +12,27 @@
 
 # Tech Stack :- React js(FrontEnd) , Chakara UI(FrontEnd) , FireBase(Backend), JSON Server (Backend)
 
-# functionalaties:- Carousal,search,sorting,filtring,product details, authentication,cart,payments
+# functionalaties:-
+
+# Carousal,
+
+# search,
+
+# sorting,
+
+# filtring,
+
+# pagination,
+
+# product,
+
+# details,
+
+# authentication,
+
+# cart,
+
+# payments
 
 # Thnak you,
 
