@@ -37,7 +37,7 @@
 # Thnak you,
 
 #Website..
-# Landing
+# Landing Page
 ![Screenshot (1000)](https://user-images.githubusercontent.com/106812942/214018158-224d47c0-2f3e-4a72-bc00-53ea918e6fdf.png)
 
 # Products Page
