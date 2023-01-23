@@ -52,3 +52,8 @@
 # Cart Page
 ![Screenshot (996)](https://user-images.githubusercontent.com/106812942/214019904-72366854-55ac-42e3-ac65-79aa91578219.png)
 
+# LogIn Page
+![Screenshot (998)](https://user-images.githubusercontent.com/106812942/214021503-556cc91d-69f7-4034-8261-a61017bedc40.png)
+
+# Signup Page
+![Screenshot (997)](https://user-images.githubusercontent.com/106812942/214021522-626b3de2-e46b-4e3b-b583-62301640b1b2.png)
