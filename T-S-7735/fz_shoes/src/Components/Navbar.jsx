@@ -112,9 +112,7 @@ export default function Navbar() {
                 >
                   <Avatar
                     size={"sm"}
-                    src={
-                      "https://avatars.githubusercontent.com/u/106812942?v=4"
-                    }
+                    src={"https://cdn-icons-png.flaticon.com/512/21/21104.png"}
                   />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
@@ -124,7 +122,7 @@ export default function Navbar() {
                     <Avatar
                       size={"2xl"}
                       src={
-                        "https://avatars.githubusercontent.com/u/106812942?v=4"
+                        "https://cdn-icons-png.flaticon.com/512/21/21104.png"
                       }
                     />
                   </Center>
