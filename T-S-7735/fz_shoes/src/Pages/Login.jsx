@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link as RouterLink } from "react-router-dom";
 import {
   Flex,
   Box,
@@ -14,6 +14,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Router } from "react-router-dom";
+import Signup from "./Signup";
 
 export default function Login() {
   return (
@@ -54,15 +56,21 @@ export default function Login() {
                 <Checkbox>Remember me</Checkbox>
                 <Link color={"blue.400"}>Forgot password?</Link>
               </Stack>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign in
-              </Button>
+
+              <RouterLink to="/">
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                >
+                  Sign in
+                </Button>
+              </RouterLink>
+              <RouterLink to="/signup" color={"blue.400"}>
+                Signup
+              </RouterLink>
             </Stack>
           </Stack>
         </Box>
