@@ -57,3 +57,9 @@
 
 # Signup Page
 ![Screenshot (997)](https://user-images.githubusercontent.com/106812942/214021522-626b3de2-e46b-4e3b-b583-62301640b1b2.png)
+
+# Payment Page
+![Screenshot (1001)](https://user-images.githubusercontent.com/106812942/214022097-0845cb6f-ea0b-481e-9784-805e8d87ff96.png)
+ 
+# Payment Successful
+![Screenshot (1002)](https://user-images.githubusercontent.com/106812942/214022161-4cb0f403-a39c-4e29-845e-736a7f99712f.png)
