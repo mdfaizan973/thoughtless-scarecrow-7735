@@ -1,4 +1,4 @@
-# Name :- Md Faizan from fw22_0210 at masai school.
+# Name :- Md Faizan from Fw22 Batch at masai school. Student Code :- fw22_0210
 
 # IA magager :- Mohsin Iqbal# Website :- https://fzshoes.netlify.app/
 
